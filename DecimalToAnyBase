@@ -1,0 +1,16 @@
+public class functionAndArray {
+    public static int DecimalToAnyBase(int n,int b) {
+    	int res=0;
+    	int pv=1;
+    	while(n!=0) {
+    		int rem=n%b;
+    		res+=rem*pv;
+    		pv*=10;
+    		n=n/b;
+    	}
+    	return res;
+    }
+    public static void main(String[] args){
+    int n=DecimalToAnyBase(n1,b);
+    }
+    }
