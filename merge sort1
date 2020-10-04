@@ -1,0 +1,44 @@
+public class sorting{
+public static int[] mergeTwoSortedArray(int[] a,int[] b) {
+    	int[] c=new int[a.length+b.length];
+    	int i=0,j=0,k=0;
+    	while(i<a.length&&j<b.length) {
+    		if(a[i]<b[j]) {
+    			c[k]=a[i];
+    			i++;
+    			k++;
+    		}else {
+    			c[k]=b[j];
+    			j++;
+    			k++;
+    		}
+    	}
+    	while(i<a.length) {
+    		c[k]=a[i];
+			i++;
+			k++;
+    	}
+    	while(j<b.length) {
+    		c[k]=b[j];
+			j++;
+			k++;
+    	}
+    	return c;
+    }
+    public static int[] mergeSort(int[] arr,int lo,int hi) {
+    	if(lo==hi) {
+    		int[] b=new int[1];
+    		b[0]=arr[lo];
+    		return b;
+    	}
+    	int mid=(lo+hi)/2;
+    	int[] fsh=mergeSort(arr,lo,mid);
+    	int[] lsh=mergeSort(arr,mid+1,hi);
+    	int[] mres=mergeTwoSortedArray(fsh,lsh);
+    	return mres;
+    }
+    public static void main(String[] args){
+    int[] arr={10,80,90,50};
+    mergeSort(arr);
+    }
+    }
